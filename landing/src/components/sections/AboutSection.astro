@@ -1,0 +1,74 @@
+---
+import { Flower2 } from '@lucide/astro';
+---
+
+<section id="sobre-nosotros" class="relative overflow-hidden bg-[#e5ebdd] py-8 lg:py-10">
+  <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-[264px] items-center overflow-hidden lg:flex">
+    <img
+      src="/assets/mockups/hojas.png"
+      alt=""
+      aria-hidden="true"
+      class="h-[84%] w-auto max-w-none opacity-[0.22] mix-blend-multiply"
+    />
+  </div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 hidden w-[264px] items-center justify-end overflow-hidden lg:flex">
+    <img
+      src="/assets/mockups/hojas.png"
+      alt=""
+      aria-hidden="true"
+      class="h-[84%] w-auto max-w-none opacity-[0.22] mix-blend-multiply"
+    />
+  </div>
+
+  <div class="section-shell relative z-10 grid items-center gap-12 md:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+    <div class="max-w-[560px]">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.02em] text-[#b56f6d]">Sobre nosotros</p>
+
+      <h2 class="max-w-[11ch] font-display text-[40px] leading-[1.02] font-semibold text-[#203b30] sm:text-[52px] lg:text-[62px]">
+        Te acompañamos <br />
+        en tu camino
+      </h2>
+
+      <div class="my-6 flex w-full max-w-[280px] items-center gap-3 text-[#c8b7ae]">
+        <span class="h-px flex-1 bg-current/65"></span>
+        <Flower2 size={13} strokeWidth={1.8} />
+        <span class="h-px flex-1 bg-current/65"></span>
+      </div>
+
+      <p class="max-w-[560px] text-base leading-[1.75] text-[#4c443d] sm:text-lg sm:leading-[1.8]">
+        Somos un espacio dedicado al bienestar integral, donde cuerpo, mente y espíritu se alinean para que puedas vivir
+        con más consciencia, calma y plenitud.
+      </p>
+      <p class="mt-5 max-w-[560px] text-base leading-[1.75] text-[#4c443d] sm:text-lg sm:leading-[1.8]">
+        Cada encuentro combina escucha, presencia y herramientas holísticas para acompañar procesos personales con
+        sensibilidad y profundidad.
+      </p>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[560px]">
+      <div class="relative h-[380px] sm:h-[430px] lg:h-[460px]">
+        <div class="absolute left-1/2 top-1/2 aspect-square h-[94%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full">
+          <img
+            src="/assets/mockups/meditacon_2.png"
+            alt="Persona meditando en la naturaleza"
+            class="h-full w-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <img
+          src="/assets/mockups/hojas.png"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none absolute right-6 top-8 h-14 w-20 object-cover object-right opacity-[0.18]"
+        />
+      </div>
+
+      <div class="absolute bottom-8 right-[7%] grid h-[96px] w-[96px] place-items-center rounded-full border border-white/70 bg-[#9aaa93]/95 p-3 text-center text-white shadow-[0_16px_24px_rgba(86,73,59,0.22)] sm:bottom-9 sm:right-[8%] sm:h-[108px] sm:w-[108px]">
+        <Flower2 class="mx-auto mb-1" size={22} strokeWidth={1.6} />
+        <span class="text-[11px] font-bold leading-[1.08]">Bienestar integral</span>
+      </div>
+    </div>
+  </div>
+</section>

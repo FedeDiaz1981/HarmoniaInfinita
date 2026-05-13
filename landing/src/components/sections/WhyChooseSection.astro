@@ -1,0 +1,72 @@
+﻿---
+import { CircleCheckBig, Flower2 } from '@lucide/astro';
+
+const reasons = [
+  'Acompañamiento profesional y personalizado',
+  'Enfoque holístico e integral',
+  'Espacio seguro y amoroso',
+  'Herramientas para tu transformación',
+  'Comunidad consciente',
+];
+---
+
+<section class="relative overflow-hidden bg-[#203b30] py-20 text-white">
+  <div class="absolute inset-0">
+    <img
+      src="/assets/img/bg-WhyElegir.png"
+      alt=""
+      class="h-full w-full object-cover object-bottom"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="absolute inset-0 bg-[#203b30]/82 opacity-95"></div>
+
+  <div class="section-shell relative grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase text-[#d8b1aa]">
+        Nuestra forma de acompañar
+      </p>
+
+      <h2 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">
+        ¿Por qué elegir Armonía Infinita?
+      </h2>
+
+      <ul class="mt-8 grid gap-4">
+        {
+          reasons.map((reason) => (
+            <li class="flex items-start gap-3 text-sm leading-6 text-[#f4eadf] sm:text-base">
+              <CircleCheckBig
+                class="mt-0.5 shrink-0 text-[#d8b1aa]"
+                size={18}
+                strokeWidth={1.8}
+              />
+              <span>{reason}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-md">
+      <div
+        class="aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[8px] shadow-2xl ring-2 ring-[#6f8f7d]/40"
+        role="img"
+        aria-label="Flor de loto iluminada como símbolo de bienestar"
+        style="
+          --crop-image: url('/assets/img/img_whyElegir.png');
+          background-image: var(--crop-image);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        "
+      ></div>
+
+      <div
+        class="absolute -left-4 -top-4 grid h-16 w-16 place-items-center rounded-full border border-white/40 bg-[#b56f6d] text-white shadow-lg"
+      >
+        <Flower2 size={30} strokeWidth={1.5} />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,204 @@
+﻿---
+import { BookOpen, Feather, Leaf, Heart, Sun, Sprout } from '@lucide/astro';
+
+const upcomingBooks = [
+  'Gotas de Sabiduría',
+  'Más allá del sistema',
+];
+
+const pillars = [
+  {
+    icon: '/assets/img/icono_libro.png',
+    title: 'Palabra que transforma',
+    text: 'Cada libro es una herramienta para mirar hacia adentro, comprender y sanar.',
+  },
+  {
+    icon: Heart,
+    title: 'Escribir es acompañar',
+    text: 'La escritura nace del trabajo terapéutico y se convierte en puente y guía para otros.',
+  },
+  {
+    icon: Leaf,
+    title: 'Consciencia y evolución',
+    text: 'Textos que invitan a expandir la mirada, soltar creencias y crear una vida más plena.',
+  },
+  {
+    icon: Sun,
+    title: 'Integración holística',
+    text: 'Cuerpo, mente y espíritu en equilibrio, en cada palabra y enseñanza.',
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[#20392f] pb-0 pt-20 text-[#f4eadf] lg:pb-0 lg:pt-24">
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(189,207,177,0.28),transparent_56%)]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(110deg,rgba(29,50,40,0.92)_0%,rgba(52,80,62,0.74)_50%,rgba(29,50,40,0.92)_100%)]"></div>
+  </div>
+
+  
+
+  <div class="section-shell relative z-10">
+    <div class="grid items-start gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:gap-10">
+      <div>
+        <div class="mb-4 text-[#d3a59c]">
+          <BookOpen size={34} stroke-width={1.4} />
+        </div>
+
+        <p class="mb-6 text-xs font-semibold uppercase tracking-[0.28em] text-[#d3a59c] sm:text-sm">
+          Libros · Voz · Recorrido autoral
+        </p>
+
+        <h2 class="max-w-152 font-display text-3xl leading-tight text-[#f3eadf] sm:text-4xl lg:text-[2.65rem] xl:text-[3.05rem]">
+          El espacio está coordinado y guiado por
+          <span class="text-[#d3a59c]"> Ivana Arsenic</span>, terapeuta holística integral,
+          formadora y autora.
+        </h2>
+
+        <div class="my-8 flex items-center gap-3 text-[#d7cbb8]/75">
+          <span class="h-px w-16 bg-current"></span>
+          <Leaf size={16} stroke-width={1.6} />
+          <span class="h-px w-16 bg-current"></span>
+        </div>
+
+        <p class="max-w-136 text-base leading-8 text-[#f4eadf]/85 sm:text-lg sm:leading-9">
+          La escritura es una extensión del trabajo terapéutico: palabra que ordena, nombra y acompaña procesos de transformación.
+        </p>
+
+        <div class="mt-11">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-full bg-[#8da286]/75 text-[#f4eadf]">
+              <BookOpen size={22} stroke-width={1.5} />
+            </span>
+            <h3 class="font-display text-[2rem] text-[#d9a69a] sm:text-[2.2rem] lg:text-[2.4rem]">Libros publicados</h3>
+          </div>
+
+          <article class="flex flex-col gap-4 rounded-[1.55rem] border border-[#c6b6a5]/45 bg-[#f4eadf]/6 p-4 shadow-[0_8px_28px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:flex-row sm:gap-5 sm:p-6">
+            <div class="h-36 w-24 shrink-0 overflow-hidden rounded-sm border border-[#dccbb8]/25 sm:h-44 sm:w-28">
+              <img
+                src="/assets/img/Libro.png"
+                alt="Manifiesto de Plenitud"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div>
+              <h4 class="font-display text-[1.9rem] leading-tight text-[#f4eadf] sm:text-[2.15rem]">Manifiesto de Plenitud</h4>
+              <p class="mt-3 text-sm leading-7 text-[#f4eadf]/80 sm:text-base sm:leading-8">
+                Un libro de conciencia y transformación interior que invita a revisar creencias, sanar heridas emocionales y reconectar con el poder personal desde una mirada profunda, amorosa y realista.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-8">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="grid h-12 w-12 place-items-center rounded-full bg-[#8da286]/75 text-[#f4eadf]">
+              <Feather size={21} stroke-width={1.5} />
+            </span>
+            <h3 class="font-display text-[2rem] text-[#d9a69a] sm:text-[2.2rem] lg:text-[2.4rem]">Próximas publicaciones</h3>
+          </div>
+
+          <div class="rounded-[18px] bg-[#efeadc] p-4 text-[#203b30] shadow-xl sm:p-5">
+            {upcomingBooks.map((book) => (
+              <div class="flex items-center gap-3 border-b border-[#203b30]/15 py-2 last:border-b-0 last:pb-0 first:pt-0">
+                <Sprout size={18} class="text-[#6f8f7d]" stroke-width={1.7} />
+                <span class="text-xl font-display leading-tight sm:text-2xl lg:text-[1.9rem]">
+                  {book} <span class="text-sm text-[#203b30]/65 sm:text-base">(próximamente)</span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2 lg:mt-0">
+        <div class="relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-[46rem]">
+          <div class="pointer-events-none absolute inset-0 z-20 rounded-[15.5rem_15.5rem_1.25rem_1.25rem] border border-[#dfc3ae]/85 xl:rounded-[17.5rem_17.5rem_1.35rem_1.35rem]"></div>
+          <div class="pointer-events-none absolute inset-x-0 top-0 z-20 h-[47%] rounded-t-[15.5rem] bg-[linear-gradient(180deg,rgba(44,73,57,0.30)_0%,rgba(44,73,57,0.17)_44%,rgba(44,73,57,0.00)_100%)] xl:rounded-t-[17.5rem]"></div>
+          <div class="pointer-events-none absolute inset-0 z-10 rounded-[15.5rem_15.5rem_1.25rem_1.25rem] shadow-[inset_0_0_0_1px_rgba(20,32,26,0.26)] xl:rounded-[17.5rem_17.5rem_1.35rem_1.35rem]"></div>
+          <div class="relative overflow-hidden rounded-[15.5rem_15.5rem_1.25rem_1.25rem] bg-[#284236] shadow-[0_24px_55px_rgba(0,0,0,0.38)] xl:rounded-[17.5rem_17.5rem_1.35rem_1.35rem]">
+          <img
+            src="/assets/img/Libro_4.png"
+            alt="Libro Manifiesto de Plenitud"
+            class="aspect-[4/4.58] h-full w-full scale-[1.05] object-cover object-[52%_47%]"
+            loading="lazy"
+          />
+          </div>
+        </div>
+
+        <article class="relative mx-auto mt-6 max-w-md rounded-[1.35rem] border border-[#cdb8a8]/55 bg-[#f4eadf]/12 p-5 shadow-xl backdrop-blur-sm sm:max-w-lg lg:max-w-xl xl:mt-9 xl:max-w-[44rem] xl:rounded-[1.5rem] xl:p-6">
+          <img src="/assets/img/rama_vert_libro.png" alt="" class="absolute bottom-3 right-5 hidden w-20 opacity-35 md:block" loading="lazy" />
+
+          <div class="flex items-center gap-4">
+            <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#f4eadf] text-[#2d4c3a] xl:h-16 xl:w-16">
+              <Leaf size={26} stroke-width={1.5} />
+            </span>
+
+            <p class="max-w-sm font-display text-[1.5rem] italic leading-[1.35] text-[#f4eadf] sm:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.2rem]">
+              Los libros forman parte del mismo recorrido que se trabaja en sesiones, grupos y formaciones.
+            </p>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-3 text-[#dccdb7]/80">
+            <span class="h-px w-16 bg-current"></span>
+            <Leaf size={16} stroke-width={1.6} />
+            <span class="h-px w-16 bg-current"></span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="relative z-10 mt-14 border-t border-[#d3d8c6] bg-[#dfe4d0] py-10 text-[#203b30] lg:py-12">
+    <div class="section-shell">
+      <div class="rounded-3xl border border-[#cfd4c3] bg-[#eeecdf] px-5 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.10)] sm:px-6 md:px-8 md:py-9">
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:gap-0">
+          {pillars.map(({ icon: Icon, title, text }, index) => (
+            <article class={`px-3 text-center md:px-4 ${index < pillars.length - 1 ? 'xl:border-r xl:border-[#cfc6b4]' : ''}`}>
+              <div class={`mx-auto mb-3 grid h-14 w-14 place-items-center rounded-full text-white ${index === 1 || index === 3 ? 'bg-[#bd7e7d]' : 'bg-[#809878]'}`}>
+                {typeof Icon === 'string' ? (
+                  <img src={Icon} alt="" class="h-7 w-7 object-contain" loading="lazy" />
+                ) : (
+                  <Icon size={24} stroke-width={1.5} />
+                )}
+              </div>
+
+              <h4 class="font-display text-[1.55rem] uppercase leading-[1.12] tracking-[0.01em] sm:text-[1.7rem]">{title}</h4>
+              <div class="mx-auto my-3 flex items-center justify-center gap-2 text-[#8ea088]">
+                <span class="h-px w-8 bg-current"></span>
+                <Leaf size={13} stroke-width={1.6} />
+                <span class="h-px w-8 bg-current"></span>
+              </div>
+
+              <p class="mx-auto max-w-[15rem] text-[13px] leading-7 text-[#203b30]/80">{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="mx-auto mt-6 flex w-full max-w-6xl flex-col items-center justify-between gap-4 rounded-[2rem] bg-[#365443] px-6 py-3 text-center shadow-xl sm:px-8 md:rounded-full md:flex-row md:pl-12 md:pr-6 md:text-left">
+        <div class="flex items-center gap-4">
+          <span class="hidden text-[#cfb3a3] sm:block">
+            <Leaf size={31} stroke-width={1.4} />
+          </span>
+
+          <p class="text-[14px] leading-7 text-[#f4eadf]/88 md:text-[14px]">
+            Te invito a explorar mis libros como parte de tu camino de transformación.
+            <br class="hidden sm:block" />
+            Que cada palabra sea un encuentro contigo mismo.
+          </p>
+        </div>
+
+        <a
+          href="#contacto"
+          class="rounded-full bg-[#b97775] px-10 py-3 text-[14px] font-semibold text-white shadow-lg transition hover:bg-[#a96766]"
+        >
+          Conocé más sobre los libros
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

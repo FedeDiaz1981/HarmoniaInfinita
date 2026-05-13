@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import TherapiesSection from '../components/sections/TherapiesSection.astro';
+import WhyChooseSection from '../components/sections/WhyChooseSection.astro';
+import RecorridoSection from '../components/sections/RecorridoTerapeutico.astro';
+import ClosingCTASection from '../components/sections/ClosingCTASection.astro';
+import RecorridoTerapeutico from '../components/sections/RecorridoTerapeutico.astro';
+import Libro from '../components/sections/LibroSection.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <HeroSection />
+    <AboutSection />
+    <TherapiesSection />
+    <WhyChooseSection />
+    <RecorridoTerapeutico />
+    <Libro />
+    <ClosingCTASection />
+  </main>
+  <Footer />
+</BaseLayout>

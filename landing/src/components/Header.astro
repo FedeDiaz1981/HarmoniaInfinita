@@ -1,0 +1,54 @@
+---
+import { MessageCircle } from '@lucide/astro';
+
+const navItems = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#sobre-nosotros', label: 'Sobre nosotros' },
+  { href: '#terapias', label: 'Terapias' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header class="site-header is-at-top fixed inset-x-0 top-0 z-50 px-4 py-3">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-[8px] border border-[#40573c]/15 bg-[#fffaf3]/88 px-3 py-2 shadow-sm backdrop-blur-md sm:px-5">
+    <a href="#inicio" class="flex min-w-0 items-center gap-3" aria-label="Ir al inicio">
+      <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#fffaf3] ring-1 ring-[#40573c]/18">
+        <img src="/assets/brand/armonia-icon.svg" alt="" class="h-7 w-7" loading="eager" />
+      </span>
+      <span class="min-w-0">
+        <span class="block truncate font-display text-xl font-semibold leading-none text-[#203b30]">Armonía Infinita</span>
+        <span class="hidden text-xs font-medium text-[#7b6c60] sm:block">Bienestar Holístico</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-semibold text-[#40573c] md:flex" aria-label="Navegación principal">
+      {navItems.map((item) => (
+        <a class="transition hover:text-[#b56f6d]" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a
+      href="https://wa.me/5491154778543"
+      class="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-[#b56f6d] px-4 text-sm font-bold text-white shadow-sm transition hover:bg-[#9f5f5d] focus:outline-none focus:ring-2 focus:ring-[#b56f6d]/35"
+    >
+      <MessageCircle size={18} strokeWidth={2} />
+      <span class="hidden sm:inline">Reservar</span>
+    </a>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('.site-header');
+  const desktopQuery = window.matchMedia('(min-width: 1024px)');
+
+  const syncHeaderState = () => {
+    if (!(header instanceof HTMLElement)) return;
+    const shouldHide = desktopQuery.matches && window.scrollY <= 24;
+    header.classList.toggle('is-at-top', shouldHide);
+  };
+
+  syncHeaderState();
+  window.addEventListener('scroll', syncHeaderState, { passive: true });
+  window.addEventListener('resize', syncHeaderState);
+  desktopQuery.addEventListener('change', syncHeaderState);
+</script>

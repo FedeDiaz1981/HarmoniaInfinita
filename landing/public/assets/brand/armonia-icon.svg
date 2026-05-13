@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>Armonia Infinita</title>
+  <g fill="none" stroke="#1f1b16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 17c10 13 13 24 0 39-13-15-10-26 0-39Z" stroke-width="4" />
+    <path d="M59 55c-18-4-31-13-37-31 19 1 31 10 37 31Z" stroke-width="4" />
+    <path d="M61 55c18-4 31-13 37-31-19 1-31 10-37 31Z" stroke-width="4" />
+    <path d="M58 56c-14 3-27 1-41-7 16-9 30-7 41 7Z" stroke-width="4" />
+    <path d="M62 56c14 3 27 1 41-7-16-9-30-7-41 7Z" stroke-width="4" />
+    <path d="M60 60c-18 0-35 6-35 17 0 9 12 14 25 8 8-4 13-12 20-17 9-7 25-4 25 8 0 11-17 17-35 17-17 0-35-6-35-17" stroke-width="4" />
+  </g>
+</svg>

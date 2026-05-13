@@ -1,0 +1,111 @@
+﻿---
+import { Leaf, Sprout, Flame, Flower2, CircleCheckBig } from '@lucide/astro';
+
+const therapeuticPaths = [
+  {
+    icon: Sprout,
+    title: 'Volver a mí',
+    subtitle: 'Para personas en crisis emocional',
+    items: [
+      'Acompañamiento holístico (8 sesiones)',
+      'Reiki y/o Registros Akáshicos',
+      'Meditación semanal',
+    ],
+  },
+  {
+    icon: Leaf,
+    title: 'Sanar la historia',
+    subtitle: 'Para quienes repiten patrones vinculares o familiares',
+    items: [
+      'Constelaciones familiares',
+      'Biodecodificación',
+      'Sanación del niño interior',
+    ],
+  },
+  {
+    icon: Flame,
+    title: 'Despertar y expansión',
+    subtitle: 'Para buscadores espirituales',
+    items: [
+      'Registros Akáshicos',
+      'Reiki',
+      'Meditaciones / Yoga Kundalini',
+      'Formación energética',
+    ],
+  },
+  {
+    icon: Flower2,
+    title: 'Formación terapéutica',
+    subtitle: 'Para quienes desean acompañar a otros',
+    items: [
+      'Reiki completo',
+      'Constelaciones familiares',
+      'Coaching transformacional',
+      'Prácticas supervisadas',
+    ],
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[#f4eadf] py-20 text-[#203b30]">
+  <div class="absolute inset-0 opacity-35">
+    <img
+      src="/assets/img/bg-WhyElegir.png"
+      alt=""
+      class="h-full w-full object-cover object-center"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="absolute inset-0 bg-[#f4eadf]/90"></div>
+
+  <div class="section-shell relative">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b56f6d]">
+        Recorridos terapéuticos sugeridos
+      </p>
+
+      <h2 class="font-display text-4xl font-semibold leading-tight sm:text-5xl">
+        Elegí el camino que hoy resuena con vos
+      </h2>
+
+      <div class="mx-auto mt-5 h-px w-24 bg-[#b56f6d]/40"></div>
+
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#203b30]/75">
+        Cada recorrido integra distintas herramientas para acompañarte según tu momento personal,
+        emocional y espiritual.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {therapeuticPaths.map(({ icon: Icon, title, subtitle, items }) => (
+        <article class="group relative overflow-hidden rounded-t-full rounded-b-[18px] border border-[#d8b1aa]/35 bg-[#fffaf3]/75 px-6 pb-7 pt-10 text-center shadow-[0_18px_45px_rgba(32,59,48,0.10)] backdrop-blur">
+          <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#d8b1aa]/35 text-[#203b30] ring-1 ring-[#b56f6d]/25 transition-transform duration-300 group-hover:-translate-y-1">
+            <Icon size={30} strokeWidth={1.5} />
+          </div>
+
+          <h3 class="mt-6 font-display text-2xl font-semibold text-[#203b30]">
+            {title}
+          </h3>
+
+          <p class="mt-2 min-h-[48px] text-sm italic leading-6 text-[#b56f6d]">
+            {subtitle}
+          </p>
+
+          <ul class="mt-6 grid gap-3 text-left">
+            {items.map((item) => (
+              <li class="flex items-start gap-3 text-sm leading-6 text-[#203b30]/80">
+                <CircleCheckBig
+                  class="mt-0.5 shrink-0 text-[#8fa998]"
+                  size={17}
+                  strokeWidth={1.8}
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

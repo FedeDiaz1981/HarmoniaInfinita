@@ -1,0 +1,89 @@
+---
+import { AtSign, Globe, MessageCircle } from '@lucide/astro';
+
+const heroLinks = [
+  {
+    href: 'https://instagram.com/harmonia.infinita.centro',
+    label: 'Seguinos en Instagram',
+    detail: '@harmonia.infinita.centro',
+    tone: 'bg-[#9AAE88]',
+    icon: 'instagram',
+  },
+  {
+    href: 'https://wa.me/5491154778543',
+    label: 'Escribinos por WhatsApp',
+    detail: '+54 11 5477-8543',
+    tone: 'bg-[#CC9E9C]',
+    icon: 'message',
+  },
+  {
+    href: 'https://www.facebook.com/harmonia.infinita.oficial',
+    label: 'Seguinos en Facebook',
+    detail: 'harmonia.infinita.oficial',
+    tone: 'bg-[#9AAE88]',
+    icon: 'facebook',
+  },
+];
+---
+
+<section id="inicio" class="relative isolate min-h-[700px] overflow-hidden bg-[#f7efe6] md:min-h-[760px]">
+  <div class="sr-only">
+    <h1>Armonia Infinita</h1>
+    <p>Equilibra tu energia y transforma tu bienestar con terapias holisticas.</p>
+  </div>
+
+  <div class="absolute inset-0 pointer-events-none">
+    <img src="/assets/mockups/fondo_hero.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-center" />
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(247,239,230,0.02)_0%,rgba(247,239,230,0)_62%,rgba(247,239,230,0.35)_100%)]"></div>
+  </div>
+
+  <div class="relative z-10 flex min-h-[700px] items-center justify-center px-4 py-8 sm:px-6 md:min-h-[760px] lg:py-10">
+    <div class="w-full max-w-[860px] text-center">
+      <p class="text-[12px] font-semibold tracking-[0.45em] text-[#30271f]/85 sm:text-[13px]">HARMONIA INFINITA</p>
+
+      <div class="mx-auto mt-4 h-[196px] w-[196px] sm:mt-5 sm:h-[286px] sm:w-[286px]">
+        <img src="/assets/brand/Logo_2.png" alt="Logo Armonia Infinita" class="h-full w-full object-contain" />
+      </div>
+
+      <h2 class="mx-auto mt-4 max-w-[17ch] text-[42px] leading-[0.97] font-semibold text-[#42352d] font-display sm:mt-5 sm:text-[56px] lg:text-[64px]">
+        Equilibra tu energia y transforma tu bienestar
+      </h2>
+
+      <div class="mx-auto mt-4 flex w-fit items-center gap-3 text-[#c5aba5] sm:mt-5 sm:gap-4">
+        <span class="h-px w-10 bg-[#dbc9bf] sm:w-12"></span>
+        <img src="/assets/brand/armonia-icon.svg" alt="" aria-hidden="true" class="h-4 w-4 opacity-45" />
+        <span class="h-px w-10 bg-[#dbc9bf] sm:w-12"></span>
+      </div>
+
+      <p class="mt-4 text-[12px] font-semibold tracking-[0.16em] text-[#45382f]/86 sm:mt-5 sm:text-[16px] sm:tracking-[0.2em] lg:text-[23px] lg:tracking-[0.28em]">
+        TERAPIAS HOLISTICAS | REIKI | MEDITACION | SANACION ENERGETICA
+      </p>
+
+      <div class="mx-auto mt-6 grid w-full max-w-[820px] grid-cols-1 gap-3 sm:mt-7 sm:grid-cols-3 sm:gap-4">
+        {
+          heroLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              class:list={[
+                'group inline-flex min-h-[64px] items-center gap-3 rounded-full px-4 py-2 text-left text-white shadow-[0_12px_24px_rgba(86,73,59,0.20)] transition hover:-translate-y-[1px] hover:brightness-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#566947] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f7efe6]',
+                link.tone,
+              ]}
+            >
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/45 bg-white/12">
+                {link.icon === 'instagram' && <AtSign size={18} strokeWidth={2} />}
+                {link.icon === 'message' && <MessageCircle size={18} strokeWidth={2} />}
+                {link.icon === 'facebook' && <Globe size={18} strokeWidth={2} />}
+              </span>
+              <span class="min-w-0">
+                <span class="block text-[12px] font-bold uppercase tracking-[0.03em]">{link.label}</span>
+                <span class="block truncate text-[12px] font-medium text-white/88">{link.detail}</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

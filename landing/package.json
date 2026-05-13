@@ -1,0 +1,23 @@
+{
+  "name": "armonia-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "overrides": {
+    "vite": "^7.3.3"
+  },
+  "dependencies": {
+    "@lucide/astro": "^1.14.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "astro": "^6.3.1",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,734 @@
+---
+import {
+  Activity,
+  BookOpen,
+  Brain,
+  Calendar,
+  ChevronDown,
+  CircleDot,
+  Dumbbell,
+  FlaskConical,
+  Flower2,
+  Footprints,
+  HandHeart,
+  HeartHandshake,
+  HeartPulse,
+  Leaf,
+  NotebookPen,
+  PersonStanding,
+  SprayCan,
+  Sparkles,
+  Sprout,
+  Timer,
+  TreePine,
+  UsersRound,
+} from '@lucide/astro';
+
+const topGroups = [
+  {
+    title: 'Sesiones individuales',
+    panel: 'individuals',
+    panelId: 'sesiones-individuales-detalle',
+    className: 'lg:col-span-6',
+    columns: 'sm:grid-cols-2 lg:grid-cols-5',
+    items: [
+      {
+        title: 'Registros Akáshicos',
+        text: 'Accede a la información de tu alma para comprender tu camino.',
+        image: '/assets/therapy-thumbs/registros-akashicos.jpg',
+      },
+      {
+        title: 'Reiki',
+        text: 'Armonización energética para equilibrar cuerpo, mente y espíritu.',
+        image: '/assets/therapy-thumbs/reiki.jpg',
+      },
+      {
+        title: 'Access Bars',
+        text: 'Libera bloqueos mentales y emocionales para más bienestar.',
+        image: '/assets/therapy-thumbs/access-bars.jpg',
+      },
+      {
+        title: 'Hipnosis terapéutica y espiritual',
+        text: 'Trabajo profundo con el inconsciente para sanar y transformar.',
+        image: '/assets/therapy-thumbs/hipnosis.jpg',
+      },
+      {
+        title: 'Limpieza energética personal',
+        text: 'Libera cargas, bloqueos y energías densas acumuladas.',
+        image: '/assets/therapy-thumbs/limpieza-energetica.jpg',
+      },
+    ],
+  },
+  {
+    title: 'Corporal - Emocional',
+    panel: 'bodyEmotion',
+    panelId: 'corporal-emocional-detalle',
+    className: 'lg:col-span-3',
+    columns: 'sm:grid-cols-2 xl:grid-cols-3',
+    items: [
+      {
+        title: 'Reflexología con aromaterapia',
+        text: 'Estimula tu bienestar físico y emocional a través de los pies y aromas terapéuticos.',
+        image: '/assets/therapy-thumbs/reflexologia.jpg',
+      },
+      {
+        title: 'Biodecodificación',
+        text: 'Comprende el origen emocional de tus síntomas y transforma desde la raíz.',
+        image: '/assets/therapy-thumbs/biodecodificacion.jpg',
+      },
+      {
+        title: 'Acompañamiento terapéutico holístico',
+        text: 'Encuentros integrales para tu transformación profunda y sostenida.',
+        image: '/assets/therapy-thumbs/acompanamiento-holistico.jpg',
+      },
+    ],
+  },
+  {
+    title: 'Conciencia - Dirección',
+    panel: 'direction',
+    panelId: 'conciencia-direccion-detalle',
+    className: 'lg:col-span-3',
+    columns: 'sm:grid-cols-2 xl:grid-cols-3',
+    items: [
+      {
+        title: 'Coaching transformacional',
+        text: 'Potencia tu propósito y crea cambios reales en tu vida.',
+        image: '/assets/therapy-thumbs/coaching.jpg',
+      },
+      {
+        title: 'Astrología',
+        text: 'Orientativa, procesos, tránsitos y revolución solar para comprender tu camino y decisiones.',
+        image: '/assets/therapy-thumbs/astrologia.jpg',
+      },
+      {
+        title: 'Feng Shui',
+        text: 'Armoniza tus espacios para atraer bienestar y equilibrio.',
+        image: '/assets/therapy-thumbs/feng-shui.jpg',
+      },
+    ],
+  },
+];
+
+const individualDetails = [
+  {
+    title: 'Registros Akáshicos',
+    text: 'Accede a la información de tu alma para comprender tu camino.',
+    icon: BookOpen,
+    tone: 'green',
+    imageSide: 'right',
+    image: '/assets/therapy-details/individual-registros-akashicos.jpg',
+  },
+  {
+    title: 'Reiki',
+    text: 'Armonización energética para equilibrar cuerpo, mente y espíritu.',
+    icon: HandHeart,
+    tone: 'rose',
+    imageSide: 'left',
+    image: '/assets/therapy-details/individual-reiki.jpg',
+  },
+  {
+    title: 'Access Bars',
+    text: 'Libera bloqueos mentales y emocionales para más bienestar.',
+    icon: Brain,
+    tone: 'green',
+    imageSide: 'right',
+    image: '/assets/therapy-details/individual-access-bars.jpg',
+  },
+  {
+    title: 'Hipnosis terapéutica y espiritual',
+    text: 'Trabajo profundo con el inconsciente para sanar y transformar.',
+    icon: Timer,
+    tone: 'rose',
+    imageSide: 'left',
+    image: '/assets/therapy-details/individual-hipnosis.jpg',
+  },
+  {
+    title: 'Reflexología con aromaterapia',
+    text: 'Estimula tu bienestar físico y emocional a través de los pies y aromas terapéuticos.',
+    icon: FlaskConical,
+    tone: 'green',
+    imageSide: 'right',
+    image: '/assets/therapy-details/individual-reflexologia.jpg',
+  },
+  {
+    title: 'Limpieza energética personal',
+    text: 'Libera cargas, bloqueos y energías densas acumuladas.',
+    icon: SprayCan,
+    tone: 'rose',
+    imageSide: 'left',
+    image: '/assets/therapy-details/individual-limpieza.jpg',
+  },
+];
+
+const bodyEmotionDetails = [
+  {
+    title: 'Reflexología con aromaterapia',
+    text: 'Estimula tu bienestar físico y emocional a través de los pies y aromas terapéuticos.',
+    icon: Footprints,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/body-reflexologia.jpg',
+  },
+  {
+    title: 'Biodecodificación',
+    text: 'Comprende el origen emocional de tus síntomas y transforma desde la raíz.',
+    icon: TreePine,
+    tone: 'rose',
+    imageSide: 'right',
+    image: '/assets/therapy-details/body-biodecodificacion.jpg',
+  },
+  {
+    title: 'Acompañamiento terapéutico holístico integral',
+    text: 'Un espacio de escucha y guía para tu transformación profunda y sostenida.',
+    icon: NotebookPen,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/body-acompanamiento.jpg',
+  },
+];
+
+const directionDetails = [
+  {
+    title: 'Coaching transformacional',
+    text: 'Potencia tu propósito y crea cambios reales en tu vida.',
+    icon: Sparkles,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/direction-coaching.jpg',
+  },
+  {
+    title: 'Astrología',
+    text: 'Orientativa, procesos, tránsitos y revolución solar para comprender tu camino y decisiones.',
+    icon: CircleDot,
+    tone: 'rose',
+    imageSide: 'right',
+    image: '/assets/therapy-details/direction-astrologia.jpg',
+  },
+  {
+    title: 'Feng Shui',
+    text: 'Armoniza tus espacios para atraer bienestar y equilibrio.',
+    icon: Sprout,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/direction-feng-shui.jpg',
+  },
+];
+
+const weeklyClasses = [
+  {
+    title: 'Meditación',
+    text: 'Mindfulness, Vipassana, Pranayama y meditación guiada para calmar la mente, cultivar la paz interior y conectar contigo.',
+    image: '/assets/therapy-thumbs/meditacion-semanal.jpg',
+  },
+  {
+    title: 'Yoga Kundalini',
+    text: 'Activa tu energía vital, eleva tu conciencia y armoniza cuerpo, mente y espíritu.',
+    image: '/assets/therapy-thumbs/yoga-kundalini.jpg',
+  },
+  {
+    title: 'Pilates orgánico',
+    text: 'Fortalece y alinea tu cuerpo desde el centro con movimientos conscientes y fluidos.',
+    image: '/assets/therapy-thumbs/pilates-organico.jpg',
+  },
+  {
+    title: 'Stretching',
+    text: 'Mejora tu flexibilidad, libera tensiones y restaura tu bienestar físico y mental.',
+    image: '/assets/therapy-thumbs/stretching.jpg',
+  },
+];
+
+const weeklyDetails = [
+  {
+    title: 'Yoga Kundalini',
+    text: 'Activa tu energía vital, eleva tu conciencia y armoniza cuerpo, mente y espíritu a través de kriyas, respiración y meditación.',
+    icon: PersonStanding,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/weekly-yoga-kundalini.jpg',
+  },
+  {
+    title: 'Meditación',
+    text: 'Encuentro para calmar la mente, expandir la conciencia y cultivar la paz interior juntos.',
+    icon: HeartPulse,
+    tone: 'rose',
+    imageSide: 'right',
+    image: '/assets/therapy-details/weekly-meditacion.jpg',
+  },
+  {
+    title: 'Pilates orgánico',
+    text: 'Fortalece y alinea tu cuerpo desde el centro con movimientos conscientes y fluidos.',
+    icon: Dumbbell,
+    tone: 'green',
+    imageSide: 'left',
+    image: '/assets/therapy-details/weekly-pilates.jpg',
+  },
+  {
+    title: 'Stretching',
+    text: 'Mejora tu flexibilidad, libera tensiones y restaura tu bienestar físico y mental.',
+    icon: Activity,
+    tone: 'rose',
+    imageSide: 'right',
+    image: '/assets/therapy-details/weekly-stretching.jpg',
+  },
+];
+
+const groupClasses = [
+  {
+    title: 'Meditación grupal',
+    text: 'Encuentros de meditación para calmar la mente, expandir la conciencia y cultivar la paz interior juntos.',
+    image: '/assets/therapy-thumbs/meditacion-grupal.jpg',
+  },
+  {
+    title: 'Rito de Útero',
+    text: 'Un espacio sagrado para honrar tu esencia femenina, sanar tu linaje y reconectar con tu poder creador.',
+    image: '/assets/therapy-thumbs/rito-utero.jpg',
+  },
+  {
+    title: 'Constelaciones familiares',
+    text: 'Trabajo terapéutico para comprender, sanar y transformar dinámicas familiares, patrones y vínculos.',
+    image: '/assets/therapy-thumbs/constelaciones.jpg',
+  },
+];
+
+const groupDetails = [
+  {
+    title: 'Meditación grupal',
+    text: 'Encuentros de meditación para calmar la mente, expandir la conciencia y cultivar la paz interior juntos.',
+    icon: UsersRound,
+    tone: 'rose',
+    imageSide: 'left',
+    image: '/assets/therapy-details/group-meditacion.jpg',
+  },
+  {
+    title: 'Rito de Útero',
+    text: 'Un espacio sagrado para honrar tu esencia femenina, sanar tu linaje y reconectar con tu poder creador.',
+    icon: Flower2,
+    tone: 'rose',
+    imageSide: 'right',
+    image: '/assets/therapy-details/group-rito-utero.jpg',
+  },
+  {
+    title: 'Trabajo sistémico grupal',
+    text: 'Para comprender, sanar y transformar dinámicas familiares, patrones y vínculos. Vincular - Sistémico.',
+    icon: HeartHandshake,
+    tone: 'rose',
+    imageSide: 'left',
+    image: '/assets/therapy-details/group-trabajo-sistemico.jpg',
+  },
+];
+
+const toneClasses = {
+  green: 'bg-[#586b48] text-[#fffaf3]',
+  rose: 'bg-[#b56f6d] text-[#fffaf3]',
+};
+---
+
+<section id="terapias" class="relative overflow-hidden bg-[#fff7ef] py-10 text-[#1f1b16] sm:py-14 lg:pt-16">
+  <div class="pointer-events-none absolute left-0 top-0 hidden sm:block" aria-hidden="true">
+    <img src="/assets/mockups/hoja_Sup_Izq.png" alt="" class="h-auto w-[250px] opacity-65 md:w-[300px] lg:w-[360px] xl:w-[450px]" />
+  </div>
+  <div class="pointer-events-none absolute right-0 top-0 hidden sm:block" aria-hidden="true">
+    <img src="/assets/mockups/hoja_Sup_Der.png" alt="" class="h-auto w-[250px] opacity-65 md:w-[300px] lg:w-[360px] xl:w-[450px]" />
+  </div>
+
+  <div class="section-shell relative">
+    <div class="mx-auto text-center">
+      <Flower2 class="mx-auto mb-2 text-[#b56f6d]" size={28} strokeWidth={1.4} />
+      <h2 class="mx-auto max-w-[21ch] font-display text-[2.35rem] font-bold uppercase leading-[0.95] text-[#241e18] sm:text-[3.1rem] md:text-[3.5rem] lg:text-[4rem]">
+        Elige tu camino de bienestar
+      </h2>
+      <p class="mx-auto mt-3 max-w-[34ch] font-display text-[1.45rem] font-semibold text-[#9f5f5d] sm:text-2xl lg:text-3xl">
+        Un espacio para sanar, conectar y transformar tu bienestar integral
+      </p>
+      <div class="mt-3 flex items-center justify-center gap-3 text-[#7a644f] sm:gap-5">
+        <span class="h-px w-14 bg-[#b56f6d]/35"></span>
+        <p class="font-display text-base font-semibold sm:text-lg lg:text-xl">Trabajo profundo, personalizado y uno a uno</p>
+        <span class="h-px w-14 bg-[#b56f6d]/35"></span>
+      </div>
+    </div>
+
+    <div class="mt-7 space-y-4">
+      {topGroups
+        .filter((group) => group.panel === 'individuals')
+        .map((group) => (
+          <article
+            class="group rounded-[16px] border border-[#d8c9bd] bg-[#fffaf3]/80 p-3 shadow-sm transition data-[state=open]:ring-2 data-[state=open]:ring-[#b56f6d]/45 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#b56f6d]/45"
+            data-therapy-trigger={group.panel}
+            data-state={group.panel ? 'closed' : undefined}
+            role="button"
+            tabindex="0"
+            aria-controls={group.panelId}
+            aria-expanded={group.panel ? 'false' : undefined}
+          >
+            <div class={`mx-auto mb-3 flex w-fit items-center gap-2 rounded-full px-5 py-1.5 shadow-sm ${toneClasses.green}`}>
+              <Flower2 size={20} strokeWidth={1.5} />
+              <h3 class="font-display text-xl font-bold uppercase leading-none">{group.title}</h3>
+              <ChevronDown class="transition group-data-[state=open]:rotate-180" size={18} strokeWidth={2} />
+            </div>
+            <div class={`grid gap-x-0 gap-y-4 divide-[#d8c9bd] ${group.columns} sm:divide-x`}>
+              {group.items.map((item) => (
+                <div class="flex h-full min-w-0 flex-col items-center px-2 py-1.5 text-center">
+                  <div
+                    class="mx-auto mb-3 h-20 w-20 shrink-0 rounded-full border border-white/70 bg-cover shadow-sm sm:h-24 sm:w-24"
+                    aria-hidden="true"
+                  >
+                    <img src={item.image} alt="" class="h-full w-full rounded-full object-cover" loading="lazy" decoding="async" />
+                  </div>
+                  <h4 class="min-h-[4.8em] w-full px-1 font-display text-[12px] leading-[1.08] font-bold text-[#231e18] sm:text-[13px] lg:text-[14px]">
+                    {item.title}
+                  </h4>
+                  <p class="mt-2 w-full px-1 text-[10px] leading-[1.28] text-[#4f463d] sm:text-[11px] sm:leading-[1.35]">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+
+      <section id="sesiones-individuales-detalle" data-therapy-panel="individuals" class="hidden scroll-mt-28" hidden>
+        <div class="mx-auto grid max-w-5xl gap-2">
+          {individualDetails.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article class="grid overflow-hidden rounded-[12px] border border-[#e0d3c8] bg-[#fffaf3]/92 shadow-sm md:grid-cols-2">
+                {item.imageSide === 'left' && (
+                  <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                    <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                  </div>
+                )}
+                <div class="flex items-center gap-5 p-4 sm:p-5">
+                  <div class={`grid h-20 w-20 shrink-0 place-items-center rounded-full shadow-sm ${toneClasses[item.tone]}`}>
+                    <Icon size={38} strokeWidth={1.35} />
+                  </div>
+                  <div>
+                    <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
+                    <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                      <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                      <Flower2 size={15} strokeWidth={1.4} />
+                    </div>
+                    <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  </div>
+                </div>
+                {item.imageSide !== 'left' && (
+                  <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                    <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        {topGroups
+          .filter((group) => group.panel !== 'individuals')
+          .map((group) => (
+            <article
+              class="group rounded-[16px] border border-[#d8c9bd] bg-[#fffaf3]/80 p-3 shadow-sm transition data-[state=open]:ring-2 data-[state=open]:ring-[#b56f6d]/45 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#b56f6d]/45"
+              data-therapy-trigger={group.panel}
+              data-state={group.panel ? 'closed' : undefined}
+              role="button"
+              tabindex="0"
+              aria-controls={group.panelId}
+              aria-expanded={group.panel ? 'false' : undefined}
+            >
+              <div class={`mx-auto mb-3 flex w-fit items-center gap-2 rounded-full px-5 py-1.5 shadow-sm ${toneClasses.green}`}>
+                <Flower2 size={20} strokeWidth={1.5} />
+                <h3 class="font-display text-xl font-bold uppercase leading-none">{group.title}</h3>
+                <ChevronDown class="transition group-data-[state=open]:rotate-180" size={18} strokeWidth={2} />
+              </div>
+              <div class={`grid gap-x-0 gap-y-4 divide-[#d8c9bd] ${group.columns} sm:divide-x`}>
+                {group.items.map((item) => (
+                  <div class="flex h-full min-w-0 flex-col items-center px-2 py-1.5 text-center">
+                    <div
+                      class="mx-auto mb-3 h-20 w-20 shrink-0 rounded-full border border-white/70 bg-cover shadow-sm sm:h-24 sm:w-24"
+                      aria-hidden="true"
+                    >
+                      <img src={item.image} alt="" class="h-full w-full rounded-full object-cover" loading="lazy" decoding="async" />
+                    </div>
+                    <h4 class="min-h-[4.8em] w-full px-1 font-display text-[12px] leading-[1.08] font-bold text-[#231e18] sm:text-[13px] lg:text-[14px]">
+                      {item.title}
+                    </h4>
+                    <p class="mt-2 w-full px-1 text-[10px] leading-[1.28] text-[#4f463d] sm:text-[11px] sm:leading-[1.35]">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+      </div>
+    </div>
+
+    <section id="corporal-emocional-detalle" data-therapy-panel="bodyEmotion" class="mt-5 hidden scroll-mt-28" hidden>
+      <div class="mx-auto grid max-w-5xl gap-2">
+        {bodyEmotionDetails.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article class="grid overflow-hidden rounded-[12px] border border-[#e0d3c8] bg-[#fffaf3]/92 shadow-sm md:grid-cols-2">
+              {item.imageSide === 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="flex items-center gap-5 p-4 sm:p-5">
+                <div class={`grid h-20 w-20 shrink-0 place-items-center rounded-full shadow-sm ${toneClasses[item.tone]}`}>
+                  <Icon size={38} strokeWidth={1.35} />
+                </div>
+                <div>
+                  <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
+                  <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                    <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                    <Flower2 size={15} strokeWidth={1.4} />
+                  </div>
+                  <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                </div>
+              </div>
+              {item.imageSide !== 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <section id="conciencia-direccion-detalle" data-therapy-panel="direction" class="mt-5 hidden scroll-mt-28" hidden>
+      <div class="mx-auto grid max-w-5xl gap-2">
+        {directionDetails.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article class="grid overflow-hidden rounded-[12px] border border-[#e0d3c8] bg-[#fffaf3]/92 shadow-sm md:grid-cols-2">
+              {item.imageSide === 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="flex items-center gap-5 p-4 sm:p-5">
+                <div class={`grid h-20 w-20 shrink-0 place-items-center rounded-full shadow-sm ${toneClasses[item.tone]}`}>
+                  <Icon size={38} strokeWidth={1.35} />
+                </div>
+                <div>
+                  <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
+                  <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                    <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                    <Flower2 size={15} strokeWidth={1.4} />
+                  </div>
+                  <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                </div>
+              </div>
+              {item.imageSide !== 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <div class="mt-5 grid gap-3 lg:grid-cols-2">
+      <article
+        class="group cursor-pointer overflow-hidden rounded-[16px] border border-[#d8c9bd] bg-[#fffaf3]/82 shadow-sm transition data-[state=open]:ring-2 data-[state=open]:ring-[#b56f6d]/45 focus:outline-none focus:ring-2 focus:ring-[#b56f6d]/45"
+        data-therapy-trigger="weekly"
+        data-state="closed"
+        role="button"
+        tabindex="0"
+        aria-controls="clases-semanales-detalle"
+        aria-expanded="false"
+      >
+        <div class="bg-[#586b48] px-4 py-3 text-center text-[#fffaf3]">
+          <div class="flex items-center justify-center gap-2">
+            <Flower2 size={22} strokeWidth={1.45} />
+            <h3 class="font-display text-2xl font-bold uppercase leading-none">Clases semanales</h3>
+            <ChevronDown class="transition group-data-[state=open]:rotate-180" size={20} strokeWidth={2} />
+          </div>
+          <p class="mt-1 font-display text-lg">Prácticas que nutren tu cuerpo, mente y energía cada semana</p>
+        </div>
+        <div class="grid items-start gap-x-0 gap-y-6 p-5 sm:grid-cols-2 xl:grid-cols-4 xl:divide-x xl:divide-[#d8c9bd]">
+          {weeklyClasses.map((item) => (
+            <div class="flex h-full min-w-0 flex-col items-center px-3 py-1 text-center">
+              <div
+                class="mx-auto mb-3 grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-full border border-white/80 bg-cover shadow-sm lg:h-[104px] lg:w-[104px]"
+                aria-hidden="true"
+              >
+                <img src={item.image} alt="" class="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
+              </div>
+              <h4 class="mx-auto min-h-[2.5em] max-w-[15ch] font-display text-[19px] font-bold leading-[1.15] text-[#231e18]">{item.title}</h4>
+              <p class="mx-auto mt-2 max-w-[22ch] text-[13px] leading-[1.5] text-[#4f463d]">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article
+        class="group cursor-pointer overflow-hidden rounded-[16px] border border-[#d8c9bd] bg-[#fffaf3]/82 shadow-sm transition data-[state=open]:ring-2 data-[state=open]:ring-[#b56f6d]/45 focus:outline-none focus:ring-2 focus:ring-[#b56f6d]/45"
+        data-therapy-trigger="groups"
+        data-state="closed"
+        role="button"
+        tabindex="0"
+        aria-controls="clases-grupales-mixtas-detalle"
+        aria-expanded="false"
+      >
+        <div class="bg-[#b56f6d] px-4 py-3 text-center text-[#fffaf3]">
+          <div class="flex items-center justify-center gap-2">
+            <Flower2 size={22} strokeWidth={1.45} />
+            <h3 class="font-display text-2xl font-bold uppercase leading-none">Clases grupales y mixtas</h3>
+            <ChevronDown class="transition group-data-[state=open]:rotate-180" size={20} strokeWidth={2} />
+          </div>
+          <p class="mt-1 font-display text-lg">Sostén, regulación y bienestar en comunidad</p>
+        </div>
+        <div class="grid items-start gap-x-0 gap-y-6 p-5 sm:grid-cols-2 lg:grid-cols-3 lg:divide-x lg:divide-[#d8c9bd]">
+          {groupClasses.map((item) => (
+            <div class="flex h-full min-w-0 flex-col items-center px-3 py-1 text-center">
+              <div
+                class="mx-auto mb-3 grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-full border border-white/80 bg-cover shadow-sm lg:h-28 lg:w-28"
+                aria-hidden="true"
+              >
+                <img src={item.image} alt="" class="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
+              </div>
+              <h4 class="mx-auto min-h-[2.5em] max-w-[16ch] font-display text-[19px] font-bold leading-[1.15] text-[#231e18]">{item.title}</h4>
+              <p class="mx-auto mt-2 max-w-[23ch] text-[13px] leading-[1.5] text-[#4f463d]">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <section id="clases-semanales-detalle" data-therapy-panel="weekly" class="mt-5 hidden scroll-mt-28" hidden>
+      <div class="mx-auto grid max-w-5xl gap-2">
+        {weeklyDetails.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article class="grid overflow-hidden rounded-[12px] border border-[#e0d3c8] bg-[#fffaf3]/92 shadow-sm md:grid-cols-2">
+              {item.imageSide === 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="flex items-center gap-5 p-4 sm:p-5">
+                <div class={`grid h-20 w-20 shrink-0 place-items-center rounded-full shadow-sm ${toneClasses[item.tone]}`}>
+                  <Icon size={38} strokeWidth={1.35} />
+                </div>
+                <div>
+                  <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
+                  <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                    <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                    <Flower2 size={15} strokeWidth={1.4} />
+                  </div>
+                  <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                </div>
+              </div>
+              {item.imageSide !== 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <section id="clases-grupales-mixtas-detalle" data-therapy-panel="groups" class="mt-5 hidden scroll-mt-28" hidden>
+      <div class="mx-auto grid max-w-5xl gap-2">
+        {groupDetails.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article class="grid overflow-hidden rounded-[12px] border border-[#e0d3c8] bg-[#fffaf3]/92 shadow-sm md:grid-cols-2">
+              {item.imageSide === 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="flex items-center gap-5 p-4 sm:p-5">
+                <div class={`grid h-20 w-20 shrink-0 place-items-center rounded-full shadow-sm ${toneClasses[item.tone]}`}>
+                  <Icon size={38} strokeWidth={1.35} />
+                </div>
+                <div>
+                  <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
+                  <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                    <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                    <Flower2 size={15} strokeWidth={1.4} />
+                  </div>
+                  <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                </div>
+              </div>
+              {item.imageSide !== 'left' && (
+                <div class="relative min-h-36 overflow-hidden" aria-hidden="true">
+                  <img src={item.image} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <div class="mx-auto mt-4 flex max-w-4xl flex-col items-center justify-between gap-3 rounded-full bg-[#586b48] px-6 py-3 text-center text-[#fffaf3] shadow-md sm:flex-row sm:text-left">
+      <div class="flex items-center gap-4">
+        <Leaf class="hidden shrink-0 text-[#d7c9b7] sm:block" size={36} strokeWidth={1.4} />
+        <p class="font-display text-lg sm:text-xl">Cada sesión es un espacio sagrado para tu transformación y bienestar integral.</p>
+      </div>
+      <a
+        href="https://wa.me/5491154778543"
+        class="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#b56f6d] px-7 text-base font-bold text-white transition hover:bg-[#9f5f5d]"
+      >
+        <Calendar size={19} strokeWidth={1.8} />
+        Reservar mi sesión
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const therapyTriggers = document.querySelectorAll('[data-therapy-trigger]');
+  const therapyPanels = document.querySelectorAll('[data-therapy-panel]');
+
+  const setTherapyPanel = (panelName, open) => {
+    let activePanel = null;
+
+    therapyPanels.forEach((panel) => {
+      if (!(panel instanceof HTMLElement)) return;
+      const isTarget = panel.dataset.therapyPanel === panelName;
+      const shouldOpen = isTarget && open;
+      panel.hidden = !shouldOpen;
+      panel.classList.toggle('hidden', !shouldOpen);
+      if (shouldOpen) activePanel = panel;
+    });
+
+    therapyTriggers.forEach((trigger) => {
+      if (!(trigger instanceof HTMLElement)) return;
+      const shouldOpen = trigger.dataset.therapyTrigger === panelName && open;
+      trigger.dataset.state = shouldOpen ? 'open' : 'closed';
+      trigger.setAttribute('aria-expanded', String(shouldOpen));
+    });
+
+    if (activePanel) {
+      window.requestAnimationFrame(() => {
+        activePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  };
+
+  therapyTriggers.forEach((trigger) => {
+    const toggle = () => {
+      if (!(trigger instanceof HTMLElement)) return;
+      const panelName = trigger.dataset.therapyTrigger;
+      if (!panelName) return;
+      const isOpen = trigger.dataset.state === 'open';
+      setTherapyPanel(panelName, !isOpen);
+    };
+
+    trigger.addEventListener('click', toggle);
+
+    trigger.addEventListener('keydown', (event) => {
+      if (!(event instanceof KeyboardEvent)) return;
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+
+      event.preventDefault();
+      toggle();
+    });
+  });
+</script>

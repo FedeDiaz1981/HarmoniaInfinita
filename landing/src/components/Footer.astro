@@ -1,0 +1,60 @@
+﻿---
+import { Camera, Globe, MessageCircle } from '@lucide/astro';
+
+const navItems = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#sobre-nosotros', label: 'Sobre nosotros' },
+  { href: '#terapias', label: 'Terapias' },
+  { href: '#contacto', label: 'Contacto' },
+];
+
+const socialItems = [
+  { href: 'https://instagram.com/harmonia.infinita.centro', label: 'Instagram', icon: Camera },
+  { href: 'https://wa.me/5491154778543', label: 'WhatsApp', icon: MessageCircle },
+  { href: 'https://harmoniainfinita.com.ar', label: 'Web', icon: Globe },
+];
+---
+
+<footer id="contacto" class="bg-[#f4eadf] py-12">
+  <div class="section-shell grid gap-8 border-t border-[#40573c]/15 pt-10 md:grid-cols-[1.2fr_1fr_0.8fr]">
+    <div>
+      <div class="mb-4 flex items-center gap-3">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-[#40573c]/25 bg-[#fffaf3]">
+          <img src="/assets/brand/armonia-icon.svg" alt="" class="h-8 w-8" loading="lazy" />
+        </span>
+        <div>
+          <p class="font-display text-2xl font-semibold leading-none text-[#203b30]">Armonía Infinita</p>
+          <p class="text-sm font-medium text-[#7b6c60]">Bienestar Holístico</p>
+        </div>
+      </div>
+      <p class="max-w-sm text-sm leading-6 text-[#5d524a]">
+        Un espacio para sanar, conectar y transformar tu bienestar integral con presencia, calma y acompañamiento.
+      </p>
+    </div>
+
+    <div>
+      <p class="mb-4 text-sm font-bold uppercase text-[#203b30]">Conecta</p>
+      <div class="flex flex-wrap gap-3">
+        {socialItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <a
+              href={item.href}
+              aria-label={item.label}
+              class="grid h-11 w-11 place-items-center rounded-full border border-[#40573c]/20 text-[#40573c] transition hover:border-[#b56f6d] hover:text-[#b56f6d]"
+            >
+              <Icon size={19} strokeWidth={1.8} />
+            </a>
+          );
+        })}
+      </div>
+    </div>
+
+    <nav class="grid gap-2 text-sm font-medium text-[#40573c]" aria-label="Navegación del footer">
+      {navItems.map((item) => (
+        <a class="transition hover:text-[#b56f6d]" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+  </div>
+  <p class="section-shell mt-8 text-xs text-[#7b6c60]">© 2026 Armonía Infinita. Todos los derechos reservados.</p>
+</footer>
