@@ -1,4 +1,4 @@
----
+﻿---
 import { MessageCircle } from '@lucide/astro';
 
 const navItems = [
@@ -13,10 +13,10 @@ const navItems = [
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-[8px] border border-[#40573c]/15 bg-[#fffaf3]/88 px-3 py-2 shadow-sm backdrop-blur-md sm:px-5">
     <a href="#inicio" class="flex min-w-0 items-center gap-3" aria-label="Ir al inicio">
       <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#fffaf3] ring-1 ring-[#40573c]/18">
-        <img src="/assets/brand/armonia-icon.svg" alt="" class="h-7 w-7" loading="eager" />
+        <img src="/assets/brand/logo_mark.png" alt="" class="h-7 w-7 object-contain" loading="eager" />
       </span>
       <span class="min-w-0">
-        <span class="block truncate font-display text-xl font-semibold leading-none text-[#203b30]">Armonía Infinita</span>
+        <span class="block truncate font-display text-xl font-semibold leading-none text-[#203b30]">Harmonia Infinita</span>
         <span class="hidden text-xs font-medium text-[#7b6c60] sm:block">Bienestar Holístico</span>
       </span>
     </a>
@@ -52,3 +52,4 @@ const navItems = [
   window.addEventListener('resize', syncHeaderState);
   desktopQuery.addEventListener('change', syncHeaderState);
 </script>
+
