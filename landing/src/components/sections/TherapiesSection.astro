@@ -4,7 +4,6 @@ import {
   BookOpen,
   Brain,
   Calendar,
-  ChevronDown,
   CircleDot,
   Dumbbell,
   FlaskConical,
@@ -34,27 +33,27 @@ const topGroups = [
     items: [
       {
         title: 'Registros Akáshicos',
-        text: 'Accede a la información de tu alma para comprender tu camino.',
+        text: 'Recibí claridad para tomar decisiones y volver a confiar en tu camino.',
         image: '/assets/therapy-thumbs/registros-akashicos.jpg',
       },
       {
         title: 'Reiki',
-        text: 'Armonización energética para equilibrar cuerpo, mente y espíritu.',
+        text: 'Salí más liviana, en paz y con tu energía alineada.',
         image: '/assets/therapy-thumbs/reiki.jpg',
       },
       {
         title: 'Access Bars',
-        text: 'Libera bloqueos mentales y emocionales para más bienestar.',
+        text: 'Soltá el ruido mental y recuperá calma, enfoque y bienestar.',
         image: '/assets/therapy-thumbs/access-bars.jpg',
       },
       {
         title: 'Hipnosis terapéutica y espiritual',
-        text: 'Trabajo profundo con el inconsciente para sanar y transformar.',
+        text: 'Transformá patrones de raíz y abrí espacio para una versión nueva de vos.',
         image: '/assets/therapy-thumbs/hipnosis.jpg',
       },
       {
         title: 'Limpieza energética personal',
-        text: 'Libera cargas, bloqueos y energías densas acumuladas.',
+        text: 'Liberá cargas pesadas y sentite renovada, protegida y en eje.',
         image: '/assets/therapy-thumbs/limpieza-energetica.jpg',
       },
     ],
@@ -112,7 +111,7 @@ const topGroups = [
 const individualDetails = [
   {
     title: 'Registros Akáshicos',
-    text: 'Accede a la información de tu alma para comprender tu camino.',
+    text: 'Recibí claridad para tomar decisiones y volver a confiar en tu camino.',
     icon: BookOpen,
     tone: 'green',
     imageSide: 'right',
@@ -120,7 +119,7 @@ const individualDetails = [
   },
   {
     title: 'Reiki',
-    text: 'Armonización energética para equilibrar cuerpo, mente y espíritu.',
+    text: 'Salí más liviana, en paz y con tu energía alineada.',
     icon: HandHeart,
     tone: 'rose',
     imageSide: 'left',
@@ -128,7 +127,7 @@ const individualDetails = [
   },
   {
     title: 'Access Bars',
-    text: 'Libera bloqueos mentales y emocionales para más bienestar.',
+    text: 'Soltá el ruido mental y recuperá calma, enfoque y bienestar.',
     icon: Brain,
     tone: 'green',
     imageSide: 'right',
@@ -136,7 +135,7 @@ const individualDetails = [
   },
   {
     title: 'Hipnosis terapéutica y espiritual',
-    text: 'Trabajo profundo con el inconsciente para sanar y transformar.',
+    text: 'Transformá patrones de raíz y abrí espacio para una versión nueva de vos.',
     icon: Timer,
     tone: 'rose',
     imageSide: 'left',
@@ -144,7 +143,7 @@ const individualDetails = [
   },
   {
     title: 'Reflexología con aromaterapia',
-    text: 'Estimula tu bienestar físico y emocional a través de los pies y aromas terapéuticos.',
+    text: 'Aflojá tensiones profundas y recuperá equilibrio físico y emocional.',
     icon: FlaskConical,
     tone: 'green',
     imageSide: 'right',
@@ -152,13 +151,17 @@ const individualDetails = [
   },
   {
     title: 'Limpieza energética personal',
-    text: 'Libera cargas, bloqueos y energías densas acumuladas.',
+    text: 'Liberá cargas pesadas y sentite renovada, protegida y en eje.',
     icon: SprayCan,
     tone: 'rose',
     imageSide: 'left',
     image: '/assets/therapy-details/individual-limpieza.jpg',
   },
 ];
+
+const whatsappNumber = '5491154778543';
+const getSessionBookingHref = (sessionName) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`me interesa reservar para ${sessionName}`)}`;
 
 const bodyEmotionDetails = [
   {
@@ -363,7 +366,11 @@ const toneClasses = {
             <div class={`mx-auto mb-3 flex w-fit items-center gap-2 rounded-full px-5 py-1.5 shadow-sm ${toneClasses.green}`}>
               <Flower2 size={20} strokeWidth={1.5} />
               <h3 class="font-display text-xl font-bold uppercase leading-none">{group.title}</h3>
-              <ChevronDown class="transition group-data-[state=open]:rotate-180" size={18} strokeWidth={2} />
+            </div>
+            <div class="mb-2 text-center md:hidden">
+              <span class="inline-flex min-h-9 items-center rounded-full border border-[#b56f6d]/30 px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#8f5654]">
+                Saber más
+              </span>
             </div>
             <div class={`hidden gap-x-0 gap-y-4 divide-[#d8c9bd] ${group.columns} sm:divide-x md:grid`}>
               {group.items.map((item) => (
@@ -404,11 +411,19 @@ const toneClasses = {
                   </div>
                   <div>
                     <h4 class="font-display text-2xl font-bold uppercase leading-none text-[#586b48]">{item.title}</h4>
-                    <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
-                      <span class="h-px w-16 bg-[#b56f6d]/35"></span>
-                      <Flower2 size={15} strokeWidth={1.4} />
-                    </div>
+                  <div class="my-2 flex items-center gap-2 text-[#b56f6d]">
+                    <span class="h-px w-16 bg-[#b56f6d]/35"></span>
+                    <Flower2 size={15} strokeWidth={1.4} />
+                  </div>
                   <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  <a
+                    href={getSessionBookingHref(item.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-flex min-h-10 items-center rounded-full border border-[#b56f6d]/35 px-4 text-sm font-semibold text-[#8f5654] transition hover:bg-[#b56f6d]/10 md:hidden"
+                  >
+                    Reservar
+                  </a>
                 </div>
               </div>
               {item.imageSide !== 'left' && (
@@ -438,7 +453,11 @@ const toneClasses = {
               <div class={`mx-auto mb-3 flex w-fit items-center gap-2 rounded-full px-5 py-1.5 shadow-sm ${toneClasses.green}`}>
                 <Flower2 size={20} strokeWidth={1.5} />
                 <h3 class="font-display text-xl font-bold uppercase leading-none">{group.title}</h3>
-                <ChevronDown class="transition group-data-[state=open]:rotate-180" size={18} strokeWidth={2} />
+              </div>
+              <div class="mb-2 text-center md:hidden">
+                <span class="inline-flex min-h-9 items-center rounded-full border border-[#b56f6d]/30 px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#8f5654]">
+                  Saber más
+                </span>
               </div>
               <div class={`hidden gap-x-0 gap-y-4 divide-[#d8c9bd] ${group.columns} sm:divide-x md:grid`}>
                 {group.items.map((item) => (
@@ -486,6 +505,14 @@ const toneClasses = {
                     <Flower2 size={15} strokeWidth={1.4} />
                   </div>
                   <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  <a
+                    href={getSessionBookingHref(item.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-flex min-h-10 items-center rounded-full border border-[#b56f6d]/35 px-4 text-sm font-semibold text-[#8f5654] transition hover:bg-[#b56f6d]/10 md:hidden"
+                  >
+                    Reservar
+                  </a>
                 </div>
               </div>
               {item.imageSide !== 'left' && (
@@ -524,6 +551,14 @@ const toneClasses = {
                     <Flower2 size={15} strokeWidth={1.4} />
                   </div>
                   <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  <a
+                    href={getSessionBookingHref(item.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-flex min-h-10 items-center rounded-full border border-[#b56f6d]/35 px-4 text-sm font-semibold text-[#8f5654] transition hover:bg-[#b56f6d]/10 md:hidden"
+                  >
+                    Reservar
+                  </a>
                 </div>
               </div>
               {item.imageSide !== 'left' && (
@@ -551,7 +586,11 @@ const toneClasses = {
           <div class="mx-auto flex w-fit items-center justify-center gap-2 rounded-full bg-[#586b48] px-5 py-1.5 text-[#fffaf3] shadow-sm md:w-auto md:rounded-none md:bg-transparent md:px-0 md:py-0 md:text-inherit md:shadow-none">
             <Flower2 size={22} strokeWidth={1.45} />
             <h3 class="font-display text-2xl font-bold uppercase leading-none">Clases semanales</h3>
-            <ChevronDown class="transition group-data-[state=open]:rotate-180" size={20} strokeWidth={2} />
+          </div>
+          <div class="mt-2 md:hidden">
+            <span class="inline-flex min-h-9 items-center rounded-full border border-[#b56f6d]/30 px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#8f5654]">
+              Saber más
+            </span>
           </div>
           <p class="mt-1 hidden font-display text-lg md:block">Prácticas que nutren tu cuerpo, mente y energía cada semana</p>
         </div>
@@ -584,7 +623,11 @@ const toneClasses = {
           <div class="mx-auto flex w-full max-w-[330px] items-center justify-center gap-2 rounded-full bg-[#586b48] px-5 py-1.5 text-[#fffaf3] shadow-sm md:w-auto md:max-w-none md:rounded-none md:bg-transparent md:px-0 md:py-0 md:text-inherit md:shadow-none">
             <Flower2 size={22} strokeWidth={1.45} />
             <h3 class="text-center font-display text-[1.25rem] font-bold uppercase leading-[1.05] md:text-2xl">Clases grupales y mixtas</h3>
-            <ChevronDown class="transition group-data-[state=open]:rotate-180" size={20} strokeWidth={2} />
+          </div>
+          <div class="mt-2 md:hidden">
+            <span class="inline-flex min-h-9 items-center rounded-full border border-[#b56f6d]/30 px-4 text-xs font-semibold uppercase tracking-[0.08em] text-[#8f5654]">
+              Saber más
+            </span>
           </div>
           <p class="mt-1 hidden font-display text-lg md:block">Sostén, regulación y bienestar en comunidad</p>
         </div>
@@ -630,6 +673,14 @@ const toneClasses = {
                     <Flower2 size={15} strokeWidth={1.4} />
                   </div>
                   <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  <a
+                    href={getSessionBookingHref(item.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-flex min-h-10 items-center rounded-full border border-[#b56f6d]/35 px-4 text-sm font-semibold text-[#8f5654] transition hover:bg-[#b56f6d]/10 md:hidden"
+                  >
+                    Reservar
+                  </a>
                 </div>
               </div>
               {item.imageSide !== 'left' && (
@@ -668,6 +719,14 @@ const toneClasses = {
                     <Flower2 size={15} strokeWidth={1.4} />
                   </div>
                   <p class="max-w-md text-sm font-medium leading-6 text-[#3f372f]">{item.text}</p>
+                  <a
+                    href={getSessionBookingHref(item.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-3 inline-flex min-h-10 items-center rounded-full border border-[#b56f6d]/35 px-4 text-sm font-semibold text-[#8f5654] transition hover:bg-[#b56f6d]/10 md:hidden"
+                  >
+                    Reservar
+                  </a>
                 </div>
               </div>
               {item.imageSide !== 'left' && (
@@ -681,7 +740,7 @@ const toneClasses = {
       </div>
     </section>
 
-    <div class="mx-auto mt-4 flex max-w-4xl flex-col items-center justify-between gap-3 rounded-full border border-[#d8c9bd] bg-[#fffaf3]/92 px-6 py-3 text-center text-[#3f372f] shadow-sm sm:flex-row sm:text-left">
+    <div class="mx-auto mt-4 hidden max-w-4xl flex-col items-center justify-between gap-3 rounded-full border border-[#d8c9bd] bg-[#fffaf3]/92 px-6 py-3 text-center text-[#3f372f] shadow-sm md:flex md:flex-row md:text-left">
       <div class="flex items-center gap-4">
         <Leaf class="hidden shrink-0 text-[#8fa998] sm:block" size={36} strokeWidth={1.4} />
         <p class="font-display text-lg sm:text-xl">Cada sesión es un espacio sagrado para tu transformación y bienestar integral.</p>
